@@ -1,0 +1,57 @@
+.sidenav {
+    /*height: 1200px;*/
+    width: 18%;
+    z-index: 1;
+    top: 0;
+    position: absolute;
+    left: 0px;
+    text-align: center;
+    background-color: #E25886;
+    padding-top: 20px;
+    overflow-x: hidden;
+    margin-top: 0px !important;
+    /*animation: widthStretch 2s ease-out;*/
+    /*animation-fill-mode: forwards;*/
+}
+.central-logo-login{
+    position: relative;
+    height: 100px;
+}
+
+
+@keyframes widthStretch {
+    from {width:0px;}
+    to {width:270px;}
+}
+@keyframes heightStretch {
+    from {height:0;}
+    to {height:100vh;}
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: pink;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+
+.closeButtonMenu{
+    float:right;
+    border:none;
+    margin-right:8%;
+    background-color: #E25886;
+}
+
+@media (max-width: 800px ) {
+    .sidenav {
+        min-width: 130px;
+
+    }
+}
+

@@ -1,0 +1,106 @@
+import React, { Component } from 'react'
+import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import Button from 'react-bootstrap/Button';
+import { useState, useEffect, useContext } from "react";
+import {
+    faInfoCircle,faCheckSquare,
+    faEye,
+    faMicroscope,
+    faTimesCircle,
+    faLanguage,
+    faLocationArrow,
+    faCogs,
+    faHospital,
+    faGlasses, faList, faPlusCircle, faPencilAlt, faPalette, faExclamationTriangle, faSave
+} from '@fortawesome/free-solid-svg-icons';
+
+import LabelItem from "./LabelItem";
+// import { useForm } from "react-hook-form";
+// import DjangoCSRFToken from 'django-react-csrftoken'
+import cookie from "react-cookies";
+import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
+import Card from "react-bootstrap/Card";
+import {Col, Row} from "react-bootstrap";
+import {AppContext,LabelContext} from "../../App";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import SubmitButtons from "../General/SubmitButtons";
+import Slide from '@material-ui/core/Slide';
+import Zoom from '@material-ui/core/Zoom';
+
+// import {Container,Row,Col} from "react-bootstrap";
+// axios.defaults.xsrfHeaderName = "X-CSRFToken";
+// axios.defaults.xsrfCookieName = "csrftoken";
+// axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+function LabelList(props){
+    const { report, reports, action, index, checks, userLabels, labelsList } = useContext(AppContext);
+    const [labels_to_show, setLabels_to_show] = userLabels
+    const [labels, setLabels] = labelsList
+    const [Checks, setChecks] = checks;
+    const [Report, setReport] = report;
+    const [Reports, setReports] = reports;
+    const [Index, setIndex] = index;
+    const [Action, setAction] = index;
+    const [Saved,SetSaved] = useState(false)
+    const [ShowInfo,SetShowInfo] = useState(false)
+
+    useEffect(()=>{
+        SetShowInfo(false)
+    },[Action,Index])
+
+    function changeInfo(e){
+        e.preventDefault()
+        if(ShowInfo){
+            SetShowInfo(false)
+
+        }else{SetShowInfo(true)}
+    }
+
+
+    return(
+
+        <div>
+            {/*<h2>LABELS</h2>*/}
+               <div className='labels_list'>
+                <form id = "annotation-form" className="annotation-form" >
+                <div style={{'fontWeight':'bold','fontStyle':'italic'}}>Choose one or more labels:&nbsp;&nbsp;
+                <button className='butt_info' onClick={(e)=>changeInfo(e)}><FontAwesomeIcon icon={faInfoCircle} color='blue'/></button>
+                    </div>
+                    {ShowInfo && <Zoom in={ShowInfo}>
+                        <div className='quick_tutorial'>
+                            <h5>Labels: quick tutorial</h5>
+                            <div>
+                                You can identify a list of labels.
+                                <div>
+                                    <ul className="fa-ul">
+                                        <li><span className="fa-li"><FontAwesomeIcon icon={faGlasses}/></span>
+                                            Read the report on your left
+                                        </li>
+                                        <li><span className="fa-li"><FontAwesomeIcon icon={faList}/></span> On your right the list of labels is displayed. Each label identifies a category which can be associated to the report.
+                                        </li>
+                                        <li><span className="fa-li"><FontAwesomeIcon icon={faCheckSquare}/></span>Click on the labels you prefer.
+                                        </li>
+                                        <li><span className="fa-li"><FontAwesomeIcon icon={faTimesCircle}/></span>The <span style={{'color':'red'}}>CLEAR</span> button will remove all the labels you found.
+                                        </li>
+                                        <li><span className="fa-li"><FontAwesomeIcon icon={faSave}/></span>Your changes will be saved clicking on <span style={{'color':'green'}}>SAVE</span> button, changing actions or
+                                            going to the previous or next report.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div></Zoom>}
+
+                    {!ShowInfo && <div className='container_list'>
+                    {labels.map(label => <LabelItem key ={label.seq_number} label={label.label} seq_number={label.seq_number} checks={Checks}  />)}
+                    </div>}
+                </form>
+               </div>
+
+        </div>
+
+    );
+
+
+}
+export default LabelList

@@ -1,0 +1,66 @@
+.App{
+    min-height:80vh;
+}
+.spinnerDiv{
+    margin-top:120px;
+    text-align:center;
+}
+.container{
+    padding: 10px;
+}
+.reportListStyle{
+    padding:10px;
+    font-size:1.2rem;
+    font-weight: bold;
+}
+.act{
+    margin: 7px;
+}
+@media (min-width: 1000px ) {
+    .col-md-6 {
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+    }
+}
+
+@media (min-width: 1000px ) {
+    .col-md-5 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+.modal-backdrop{
+    margin:0px !important;
+}
+.site-branding{
+    margin:0 !important;
+    background-image: url(https://www.examode.eu/wp-content/uploads/2018/11/cropped-Screenshot-2018-11-14-at-18.00.17-3.png);
+    background-position: 0% 23%;
+    background-size: cover;
+    height:13vh;
+    /*height: calc(100% - 87vh);*/
+    /*width: 100%;*/
+    /*position: fixed;*/
+    /*z-index: 0;*/
+    /*top: 0;*/
+    /*left: 0;*/
+}
+.row_container{
+    margin-top:5px;
+}
+
+
+body{
+    font-size: 16px !important;
+}
+.container{
+    padding-top: 0px;
+}
+
+
+
+
+
+
+
+/*Media query*/

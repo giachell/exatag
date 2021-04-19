@@ -1,0 +1,23 @@
+.selection_menu{
+    /*height:30px;*/
+    /*margin-top:8%;*/
+
+}
+.configuration{
+    padding-left: 20px;
+}
+.configuration_btn{
+    padding-left: 20px;
+    padding-left: 20px;
+    vertical-align: bottom;
+
+}
+.hr_class{
+    margin:0px;
+}
+.menuButton{
+    color: black;
+    background-color: white;
+    border:none;
+    float:left;
+}
